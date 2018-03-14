@@ -1,6 +1,6 @@
-select tag.name, count(post_tag.post_id) as posts
+select tag.name as tag, count(post_tag.post_id) as posts
 from tag
-join post_tag
-on tag.id = post_tag.tag_id
+left join post_tag as pt
+on tag.id = pt.tag_id
 group by tag.name
 order by posts ASC;
