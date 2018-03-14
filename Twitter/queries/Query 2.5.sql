@@ -1,4 +1,4 @@
-SELECT user.id, user.nick_name
+SELECT user.id, user.nick_name as user
 from user
 left join tweet 
 on user.id = tweet.user_id
