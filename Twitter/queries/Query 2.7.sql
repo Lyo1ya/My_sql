@@ -1,8 +1,10 @@
-select id, body, posting_date from tweet 
-where tweet.user_id = 5
+select id, body as tweet, posting_date as date 
+from tweet as t
+where t.user_id = 5
 UNION
-select tweet.id, tweet.body, tweet.posting_date from tweet 
-left join follower
-on tweet.user_id = follower.follower_id
+select t.id, t.body as tweet, t.posting_date as date
+from tweet as t 
+left join follower as f
+on t.user_id = f.follower_id
 where followed_id = 5
-order by posting_date DESC;
+order by date DESC;
