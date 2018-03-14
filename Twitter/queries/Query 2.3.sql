@@ -1,6 +1,6 @@
-SELECT user.nick_name, count(follower.follower_id) as followers
-FROM user 
-left join follower 
-on user.id = follower.followed_id
-group by user.nick_name
+SELECT u.nick_name as user, count(f.follower_id) as followers
+FROM user as u
+left join follower as f
+on u.id = f.followed_id
+group by user
 order by followers DESC;
