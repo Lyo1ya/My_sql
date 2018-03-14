@@ -1,4 +1,4 @@
-select comment.id, comment.body, comment.posting_date
+select id, body, posting_date as date
 from comment
-where comment.posting_date > date_sub(CURDATE(),INTERVAL 10 hour)
-order by comment.posting_date DESC;
+where posting_date > date_sub(CURDATE(),INTERVAL 10 hour)
+order by posting_date DESC;
